@@ -36,8 +36,8 @@
 
 const META = {
   appName: "GNS Info",
-  lastUpdated: "9 November 2026",
-  lastUpdatedISO: "2026-11-09",
+  lastUpdated: "17 November 2026",
+  lastUpdatedISO: "2026-11-17",
   academicYear: "2026/27",
   /* Suggestions button: opens an email to this address (the address is not shown on screen). */
   feedbackEmail: "eleanor.graham@northumbria.ac.uk",
@@ -72,6 +72,21 @@ const LINKS = {
   assessment: { t: "Assessment regulations and policies (University web page)", u: "https://www.northumbria.ac.uk/about-us/university-services/academic-registry/quality-and-teaching-excellence/assessment/guidance-for-students/" }
 };
 
+
+/* ---------------------------------------------------------------------------
+   USEFUL LINKS  –  shown under Contacts > Links and found by search. t = name, u = web address.
+   staff: true shows “staff login needed”. Add or remove lines freely.
+   --------------------------------------------------------------------------- */
+const USEFUL_LINKS = [
+  { t: "Module and Programme data", u: "https://glentham.campus.unn.ac.uk/Reports/browse/", staff: false },
+  { t: "GNS SharePoint", u: "https://livenorthumbriaac.sharepoint.com/sites/GeographyandNaturalSciences2/Shared%20Documents/Forms/AllItems.aspx?viewid=ec630e60%2Dc9f2%2D4d40%2D970c%2D96b713e44539&p=true&ga=1&LOF=1", staff: true },
+  { t: "People and Organisational SharePoint", u: "https://livenorthumbriaac.sharepoint.com/sites/people#recruit", staff: true },
+  { t: "CEF Hub", u: "https://livenorthumbriaac.sharepoint.com/sites/QualityEnhancementDevelopmentFramework", staff: true },
+  { t: "AI Hub", u: "https://livenorthumbriaac.sharepoint.com/sites/AIHub/SitePages/Home.aspx", staff: true },
+  { t: "TEL Central", u: "https://livenorthumbriaac.sharepoint.com/sites/TEL/", staff: true },
+  { t: "Student welfare: concerns and what to do next", u: "https://livenorthumbriaac.sharepoint.com/sites/slas/Pages/Student-welfare-concerns-and-what-to-do-next.aspx", staff: true }
+];
+
 /* The documents this app is built from. “short” appears next to each answer. */
 const SOURCES = {
   DATES:  { short: "Key Dates email, 30 Jul 2026", name: "Forthcoming Key Dates 2026/7 (email from Allison Parmley, Academic Support Manager)", date: "30 July 2026", file: "Forthcoming_Key_Dates_2026_7.pdf", note: "The email gives day and month but no year; all dates are for the 2026/27 academic year. The fuller calendar is the “Important Academic Dates (26-27)” spreadsheet." },
@@ -81,7 +96,10 @@ const SOURCES = {
   REGS:   { short: "Academic Regulations 2026/27", name: "Academic Regulations for Taught Awards (ARTA) 2026/27", date: "Effective September 2026 (ref PL077-v001; last reviewed June 2026)", file: "Academic_Regulations_for_Taught_Awards_2026-27_for_Levels_3_4_5_6_new_L7.pdf", note: "Next review due June 2027. The 2025/26 edition is no longer used in this app." },
   MISC:   { short: "Academic Misconduct Policy (PL.005-V007)", name: "Academic Misconduct Policy covering cheating, plagiarism and other forms of academic misconduct (PL.005-V007)", date: "Last reviewed November 2023; next review due November 2026", file: "Academic_Misconduct_Policy.pdf", note: "Check the University website for the newest version before relying on it for a live case." },
   MARKS:  { short: "Marks Entry guide, Sept 2025", name: "SRS Client Server Marks Entry guide", date: "September 2025", file: "Marks_Entry_in_Client_Server_Sept_2025.pdf", note: "Confirmed as still current for 2026/27." },
-  MODULES: { short: "Module tutors list, Oct 2026", name: "Module tutors, internal moderators and lead technicians (master spreadsheet, 2026/27 columns)", date: "Master list and forensic update both saved 8 October 2026", file: "ModuleTutorsList_2026.xlsx and Forensic_Module_Tutorship_2026-27.xlsx", note: "Forensic modules use the forensic team’s 2026/27 planning sheet. Six colleagues in it appear by first name only because no surname is given, and some moderators were read from initials. A working spreadsheet. Only the 2026/27 columns of the “Modules and subjects” sheet are used. Earlier years, free-text comments (apart from a few factual notes), workload and buy-out information and the other sheets are not shown. “Not listed yet” means the spreadsheet has no name for 2026/27." },
+  MODULES: { short: "Module tutors list, Oct 2026", name: "Module tutors, internal moderators and lead technicians (master spreadsheet, 2026/27 columns)", date: "Master list and forensic update both saved 8 October 2026", file: "ModuleTutorsList_2026.xlsx and Forensic_Module_Tutorship_2026-27.xlsx", note: "Forensic modules use the forensic team’s 2026/27 planning sheet. Six colleagues in it appear by first name only because no surname is given, and some moderators were read from initials. Where a Semester 1 option module also appears in the option module data (see that source), the module tutor recorded there is used. A working spreadsheet. Only the 2026/27 columns of the “Modules and subjects” sheet are used. Earlier years, free-text comments (apart from a few factual notes), workload and buy-out information and the other sheets are not shown. “Not listed yet” means the spreadsheet has no name for 2026/27." },
+  PROGS: { short: "Programme codes lookup, Nov 2026", name: "Programme Codes Lookup (student records: programme families, routes and titles)", date: "File saved 17 November 2026", file: "Programme_Codes_Lookup.xlsx", note: "Official titles here are built from the award and the route name. The wording exactly as recorded is shown on each programme. Only taught programmes of the School are used; PhD and MPhil rows are left out." },
+  SEOPT: { short: "Option module data, Nov 2026", name: "Science and Environment option module data (recorded module tutors, credits and programme routes)", date: "File saved 17 November 2026", file: "SE_Option_Module_Data.xlsx", note: "Covers option modules only, and for 2026/27 only Semester 1 modules. Student numbers in the file are not shown." },
+  LINKS: { short: "Useful links, added Nov 2026", name: "Useful links supplied for the School", date: "17 November 2026", file: "(web addresses supplied by the app’s maintainer)", note: "These links open University sites. Most need a University login, and some may only work on the University network." },
   GLOSS:  { short: "Glossary of Key Terms, June 2018", name: "Glossary of Key Terms – Academic Regulations for Taught Awards (GD.033-v001)", date: "June 2018", file: "Glossary_of_Key_Terms_-_Academic_Regulations_for_Taught_Awards.pdf", note: "An older document. Some section numbers have changed since (for example, academic misconduct is now section 1.10 of the regulations)." }
 };
 
@@ -609,6 +627,8 @@ const TERMS = [
   { t: "MT", full: "Module tutor", d: "Listed for every module on the Modules tab.", src: "MODULES" },
   { t: "IM", full: "Internal moderator", d: "The colleague who internally moderates a sample of the module’s work. Listed on the Modules tab.", src: "MODULES" },
   { t: "Lead technician", full: "", d: "Shown on the Modules tab only where the master spreadsheet names one for the module.", src: "MODULES" },
+  { t: "Route code", full: "Programme route code", d: "The short code for a programme in the student records, for example GEY1. See the Titles list under Contacts.", src: "PROGS" },
+  { t: "Programme family code", full: "", d: "A code such as 21SGEY-N in the student records lookup. Each programme can have several (for example a sandwich version or an extended degree).", src: "PROGS" },
   { t: "NU", full: "Northumbria University at Newcastle", d: "The University’s official legal name.", src: "GLOSS" }
 ];
 
@@ -617,7 +637,7 @@ const TERMS = [
    MODULES  –  module tutor (mt), internal moderator (im) and lead technician (lt)
    for 2026/27, taken from the “Modules and subjects” sheet of ModuleTutorsList_2026.xlsx
    (file last saved 8 October 2026). One line per module.
-   c = code, t = title, a = area code as written in the spreadsheet, s = semester as written,
+   c = code, t = title (blank = title not in the documents yet), cr = credits and rt = programme route codes (option modules, from SE_Option_Module_Data),  a = area code as written in the spreadsheet, s = semester as written,
    ss = semester filters (1, 2, 3, YL), n = a short factual note (only a few safe notes are copied).
    An empty list [] means the spreadsheet has no name for 2026/27.
    To change one person, edit that line. For a whole new spreadsheet, ask for the block to be regenerated.
@@ -676,11 +696,11 @@ const MODULES = [
   {"c":"AP0510","t":"Medical Biochemistry","a":"B","s":"2","ss":["2"],"mt":["Monika Winter"],"im":["Iain MacArthur"],"lt":[],"n":""},
   {"c":"AP0511","t":"Molecular Biology and Genetics","a":"B","s":"2","ss":["2"],"mt":["Bert Van Loo"],"im":["Simon Bridge"],"lt":[],"n":""},
   {"c":"AP0514","t":"Human Metabolism","a":"B","s":"2","ss":["2"],"mt":["Monika Winter"],"im":["Iain MacArthur"],"lt":[],"n":""},
-  {"c":"AP0515","t":"Environmental Biology","a":"B","s":"1","ss":["1"],"mt":["Lynn Dover"],"im":["Rachel Nicola Ranson"],"lt":["Karen Walker"],"n":""},
+  {"c":"AP0515","t":"Environmental Biology","a":"B","s":"1","ss":["1"],"mt":["Rinke Vinkenoog"],"im":["Rachel Nicola Ranson"],"lt":["Karen Walker"],"n":"","cr":20,"rt":["BIG1","CBB1"]},
   {"c":"AP0516","t":"Biology in Action","a":"B","s":"2","ss":["2"],"mt":["Rinke Vinkenoog"],"im":["William Cheung"],"lt":[],"n":""},
-  {"c":"AP0517","t":"Bioinformatics and Molecular Biology","a":"B","s":"1","ss":["1"],"mt":["Iain MacArthur"],"im":["Vartul Sangal"],"lt":["Rachael Morton"],"n":""},
+  {"c":"AP0517","t":"Bioinformatics and Molecular Biology","a":"B","s":"1","ss":["1"],"mt":["Iain MacArthur"],"im":["Vartul Sangal"],"lt":["Rachael Morton"],"n":"","cr":20,"rt":["BCH1","BIG1","CBB1"]},
   {"c":"AP0518","t":"Investigative Biotechnology","a":"B","s":"2","ss":["2"],"mt":["Rajesh Reddy Bommareddy"],"im":["Seth Racey"],"lt":[],"n":""},
-  {"c":"AP0519","t":"Principles of Neuroscience","a":"B","s":"1","ss":["1"],"mt":["Clara Ferreira"],"im":["Rinke Vinkenoog"],"lt":[],"n":""},
+  {"c":"AP0519","t":"Principles of Neuroscience","a":"B","s":"1","ss":["1"],"mt":["Clara Ferreira"],"im":["Rinke Vinkenoog"],"lt":[],"n":"","cr":20,"rt":["BIG1","CBB1"]},
   {"c":"AP0520","t":"Neuroscience Case Studies","a":"B","s":"2","ss":["2"],"mt":["Rade Durbaba"],"im":["Anna Black"],"lt":[],"n":""},
   {"c":"AP0521","t":"Nutrition through the Lifecycle","a":"N","s":"1","ss":["1"],"mt":["Jose Lara Gallegos"],"im":[],"lt":[],"n":""},
   {"c":"AP0522","t":"Careers Skills in Food & Nutrition","a":"N","s":"2","ss":["2"],"mt":["Iain Brownlee"],"im":["Amanda Jones"],"lt":[],"n":""},
@@ -725,7 +745,7 @@ const MODULES = [
   {"c":"AP0617","t":"Product Development and Sensory Analysis","a":"N","s":"2","ss":["2"],"mt":["Georgios Koutsidis"],"im":["Maria Benlloch Tinoco"],"lt":["Callum Crawford"],"n":""},
   {"c":"AP0618","t":"Food & Nutrition - Policy and Issues","a":"N","s":"1","ss":["1"],"mt":["Edward Fox"],"im":["Jill McKay"],"lt":[],"n":""},
   {"c":"AP0619","t":"Food Quality and Safety","a":"N","s":"2","ss":["2"],"mt":["Edward Fox"],"im":["Jill McKay"],"lt":[],"n":""},
-  {"c":"AP0620","t":"Food Processing and Preservation","a":"N","s":"1","ss":["1"],"mt":["Maria Benlloch Tinoco"],"im":["Iain Brownlee"],"lt":["Callum Crawford"],"n":""},
+  {"c":"AP0620","t":"Food Processing and Preservation","a":"N","s":"1","ss":["1"],"mt":["Maria Benlloch Tinoco"],"im":["Iain Brownlee"],"lt":["Callum Crawford"],"n":"","cr":20,"rt":["FSU1"]},
   {"c":"AP0622","t":"Investigative Sports and Exercise Nutrition","a":"N","s":"2","ss":["2"],"mt":["Daniel Commane"],"im":["Jose Lara Gallegos"],"lt":[],"n":""},
   {"c":"AP0623","t":"Advanced Organic and Inorganic Chemistry","a":"C","s":"1","ss":["1"],"mt":["David Tetard"],"im":["Mark Sims"],"lt":[],"n":""},
   {"c":"AP0624","t":"Advanced Physical and Polymer Chemistry","a":"C","s":"2","ss":["2"],"mt":["Matthew Unthank"],"im":["Justin Perry"],"lt":[],"n":""},
@@ -738,7 +758,7 @@ const MODULES = [
   {"c":"AP0632","t":"Current Topics in Biochemistry","a":"B","s":"YL","ss":["YL"],"mt":["Lynn Dover","Meng Zhang"],"im":["Stephany Veuger"],"lt":[],"n":"New module"},
   {"c":"AP0636","t":"Evidence Based Medicine Literature Review","a":"SGU","s":"1","ss":["1"],"mt":["Katri Cornelissen"],"im":[],"lt":[],"n":""},
   {"c":"AP0639","t":"Biomedicine In Focus","a":"B","s":"2","ss":["2"],"mt":["Anna Black"],"im":["Lynn Dover"],"lt":[],"n":""},
-  {"c":"AP0640","t":"Clinical Nutrition","a":"N","s":"1","ss":["1"],"mt":["Iain Brownlee"],"im":["Maria Benlloch Tinoco"],"lt":["Callum Crawford"],"n":""},
+  {"c":"AP0640","t":"Clinical Nutrition","a":"N","s":"1","ss":["1"],"mt":["Iain Brownlee"],"im":["Maria Benlloch Tinoco"],"lt":["Callum Crawford"],"n":"","cr":20,"rt":["FSU1"]},
   {"c":"AP0641","t":"Police Investigations and Processes","a":"F","s":"x4","ss":[],"mt":["Julio de Carvalho Ponce"],"im":["Danny Arends"],"lt":[],"n":""},
   {"c":"AP0642 (O)","t":"Forensic Biology","a":"F","s":"YL","ss":["YL"],"mt":["Aaron Amankwaa"],"im":["Naomi Richardson"],"lt":["Alex Mora Blanco"],"n":""},
   {"c":"AP0700","t":"Graduate Science Research Methods","a":"B","s":"1","ss":["1"],"mt":["Iain MacArthur"],"im":["Lynn Dover"],"lt":[],"n":""},
@@ -785,12 +805,12 @@ const MODULES = [
   {"c":"KE4013","t":"Geographical Ideas and Practice","a":"HG","s":"1","ss":["1"],"mt":["Inge Boudewijn"],"im":["Katie Oven","Maria Dubrova"],"lt":[],"n":""},
   {"c":"KE4014","t":"Introduction to Physical Environments","a":"PG / ES","s":"1","ss":["1"],"mt":["Melody Sandells"],"im":["Mike Rogerson"],"lt":[],"n":""},
   {"c":"KE4015","t":"Environmental Challenges: Global to Local","a":"PG / ES","s":"1","ss":["1"],"mt":["Ola Kwiecien"],"im":["Vasile Ersek"],"lt":["Carol Tucker","Emily Sear"],"n":""},
-  {"c":"KE5002","t":"Cold and Palaeoenvironments","a":"PG","s":"1","ss":["1"],"mt":["Benjamin Brock"],"im":["Seb Breitenbach"],"lt":["Cal Hazell"],"n":""},
-  {"c":"KE5003","t":"Meteorology and Oceanography","a":"PG","s":"1","ss":["1"],"mt":["Benjamin Brock"],"im":["Nick Rutter"],"lt":[],"n":""},
+  {"c":"KE5002","t":"Cold and Palaeoenvironments","a":"PG","s":"1","ss":["1"],"mt":["Sainan Sun"],"im":["Seb Breitenbach"],"lt":["Cal Hazell"],"n":"","cr":20,"rt":["GEH1","PSG1"]},
+  {"c":"KE5003","t":"Meteorology and Oceanography","a":"PG","s":"1","ss":["1"],"mt":["Vasile Ersek"],"im":["Nick Rutter"],"lt":[],"n":"","cr":20,"rt":["GEH1","PSG1"]},
   {"c":"KE5005","t":"Approaches to Research in Human Geography","a":"HG","s":"2","ss":["2"],"mt":["Ana Zavala Guillen"],"im":["John Clayton"],"lt":[],"n":""},
   {"c":"KE5006","t":"P/political Geographies","a":"HG","s":"1","ss":["1"],"mt":["Kevin Glynn"],"im":["Oliver Hensengerth"],"lt":[],"n":""},
   {"c":"KE5007","t":"Social Geographies","a":"HG","s":"1","ss":["1"],"mt":["John Clayton"],"im":["Kevin Glynn"],"lt":[],"n":""},
-  {"c":"KE5014","t":"Fundamentals of Ecology","a":"PG / ES","s":"1","ss":["1"],"mt":["Yao Liu"],"im":["Kurt McLaren"],"lt":["Carol Tucker"],"n":""},
+  {"c":"KE5014","t":"Fundamentals of Ecology","a":"PG / ES","s":"1","ss":["1"],"mt":["Andrew Suggitt"],"im":["Kurt McLaren"],"lt":["Carol Tucker"],"n":"","cr":20,"rt":["ENE1","ESE1","GEH1","PGH1","PSG1"]},
   {"c":"KE5016","t":"Environment, Development and Sustainability","a":"HG / ES","s":"2","ss":["2"],"mt":["Inge Boudewijn"],"im":["Anil Namdeo"],"lt":[],"n":""},
   {"c":"KE5017","t":"Earth Observation and GIS","a":"PG / ES","s":"2","ss":["2"],"mt":["Ines Otosaka"],"im":["Sammie Buzzard"],"lt":[],"n":""},
   {"c":"KE5020","t":"Human Geography fieldwork (UK)","a":"HG","s":"2","ss":["2"],"mt":["Sarah Hughes"],"im":["John Clayton"],"lt":[],"n":""},
@@ -798,33 +818,37 @@ const MODULES = [
   {"c":"KE5023","t":"Academic Language Skills for Geography","a":"","s":"YL","ss":["YL"],"mt":[],"im":[],"lt":[],"n":""},
   {"c":"KE5027","t":"Research and Fieldwork in Physical Geography","a":"PG","s":"2","ss":["2"],"mt":["Melody Sandells"],"im":["Joseph Graly"],"lt":[],"n":""},
   {"c":"KE5028","t":"Coastal Monitoring and Management","a":"PG / ES","s":"2","ss":["2"],"mt":["Holly East"],"im":["Jack Longman"],"lt":[],"n":""},
-  {"c":"KE5029","t":"Green Cities and Nature-Based Solutions","a":"HG / ES","s":"1","ss":["1"],"mt":["Mark Goddard"],"im":["Jason Luger"],"lt":[],"n":""},
+  {"c":"KE5029","t":"Green Cities and Nature-Based Solutions","a":"HG / ES","s":"1","ss":["1"],"mt":["Mark Goddard"],"im":["Jason Luger"],"lt":[],"n":"","cr":20,"rt":["ENE1","ESE1","GEG1","GEH1","GEY1"]},
   {"c":"KE5030","t":"Ecosystem Processes in the Anthropocene","a":"ES","s":"1","ss":["1"],"mt":["Miranda Prendergast-Miller"],"im":["Katherine Baldock"],"lt":["Carol Tucker"],"n":""},
   {"c":"KE5031","t":"Biodiversity and Climate Change","a":"ES","s":"2","ss":["2"],"mt":["Yao Liu"],"im":["Emma Hocking"],"lt":[],"n":""},
   {"c":"KE5032","t":"Practice, Research and Fieldwork","a":"ES","s":"2","ss":["2"],"mt":["Paul Mann"],"im":["Ronja Reese"],"lt":[],"n":""},
-  {"c":"KE5033","t":"Environmental Cycles: Air, Water, Soil","a":"PG / ES","s":"1","ss":["1"],"mt":["Joseph Graly"],"im":["Sainan Sun"],"lt":["Emily Sear","Carol Tucker"],"n":""},
+  {"c":"KE5033","t":"Environmental Cycles: Air, Water, Soil","a":"PG / ES","s":"1","ss":["1"],"mt":["Joseph Graly"],"im":["Sainan Sun"],"lt":["Emily Sear","Carol Tucker"],"n":"","cr":20,"rt":["ENE1","GEH1","PSG1"]},
   {"c":"KE5034 / KE5055","t":"Work Placement Year / SEM","a":"PG / ES / HG","s":"1&2&YL","ss":["1","2","YL"],"mt":["Melody Sandells"],"im":[],"lt":[],"n":""},
   {"c":"KE5054 / KE5056","t":"Study Abroad Year / SEM","a":"PG / ES / HG","s":"1&2&YL","ss":["1","2","YL"],"mt":["Inge Boudewijn"],"im":[],"lt":[],"n":""},
   {"c":"KE5057","t":"Economy, Space and Development","a":"HG","s":"1","ss":["1"],"mt":["Richard Kotter"],"im":["Ana Zavala Guillen"],"lt":[],"n":""},
+  {"c":"KE5059","t":"","a":"","s":"1","ss":["1"],"mt":["Hilmar Gudmundsson"],"lt":[],"im":[],"n":"","cr":20,"rt":["GEG1","PGH1"]},
+  {"c":"KE5060","t":"","a":"","s":"1","ss":["1"],"mt":["Bronwen Whitney"],"lt":[],"im":[],"n":"","cr":20,"rt":["ESE1","GEG1","PGH1"]},
+  {"c":"KE5062","t":"","a":"","s":"1","ss":["1"],"mt":[],"lt":[],"im":[],"n":"","cr":20,"rt":["ESE1","GEG1","PGH1"]},
   {"c":"KE5064","t":"Human Geography in the Field (International)","a":"HG","s":"2","ss":["2"],"mt":["Jacob Miller"],"im":["Team"],"lt":[],"n":""},
   {"c":"KE6000","t":"Geography and Environment Dissertation","a":"PG / ES","s":"1","ss":["1"],"mt":["Sainan Sun"],"im":["Kate Winter"],"lt":[],"n":""},
   {"c":"KE6000","t":"Geography and Environment Dissertation","a":"PG / ES","s":"2","ss":["2"],"mt":["Joseph Graly"],"im":["Kate Winter"],"lt":[],"n":""},
   {"c":"KE6001","t":"Cold Landscapes","a":"PG","s":"2","ss":["2"],"mt":["Ronja Reese"],"im":["Ben Brock"],"lt":[],"n":""},
-  {"c":"KE6002","t":"Modelling, Computation and Data Manipulation","a":"PG / ES","s":"1","ss":["1"],"mt":["Nick Rutter"],"im":["Leanne Wake"],"lt":[],"n":""},
+  {"c":"KE6002","t":"Modelling, Computation and Data Manipulation","a":"PG / ES","s":"1","ss":["1"],"mt":["Nick Rutter"],"im":["Leanne Wake"],"lt":[],"n":"","cr":20,"rt":["ENE1","GEH1","PSG1"]},
   {"c":"KE6003","t":"Palaeoecology and Biogeography","a":"PG / ES","s":"2","ss":["2"],"mt":["Ulrich Salzmann"],"im":["Jack Longman"],"lt":[],"n":""},
   {"c":"KE6007","t":"Geographies of ‘race’, ethnicity and multiculture","a":"HG","s":"2","ss":["2"],"mt":["John Clayton"],"im":["Katy Jenkins"],"lt":[],"n":""},
-  {"c":"KE6017","t":"Development and Disasters","a":"HG","s":"1","ss":["1"],"mt":["Katie Oven"],"im":["Kevin Glynn"],"lt":[],"n":""},
-  {"c":"KE6018","t":"Advanced Geospatial Applications","a":"PG / ES","s":"1","ss":["1"],"mt":["Ed Rollason","Kurt McLaren"],"im":["Ines Otosaka"],"lt":[],"n":""},
+  {"c":"KE6017","t":"Development and Disasters","a":"HG","s":"1","ss":["1"],"mt":["Katie Oven"],"im":["Kevin Glynn"],"lt":[],"n":"","cr":20,"rt":["ENE1","ESE1","GEG1","GEH1","GEY1"]},
+  {"c":"KE6018","t":"Advanced Geospatial Applications","a":"PG / ES","s":"1","ss":["1"],"mt":["Leanne Wake"],"im":["Ines Otosaka"],"lt":[],"n":"","cr":20,"rt":["ENE1","ESE1","GEG1","GEH1","GEY1","PGH1","PSG1"]},
   {"c":"KE6019","t":"Public Health and Occupational Safety","a":"PG / ES","s":"2","ss":["2"],"mt":["Simon Griffiths"],"im":["Richard Kotter"],"lt":[],"n":""},
   {"c":"KE6023","t":"Applied Ecology and Conservation Management","a":"PG / ES","s":"2","ss":["2"],"mt":["Mark Goddard"],"im":["Emma Hocking"],"lt":[],"n":""},
   {"c":"KE6025","t":"Historical geographies: usable pasts and hidden histories","a":"HG","s":"2","ss":["2"],"mt":["Sarah Peck"],"im":["Peter Forman"],"lt":[],"n":""},
-  {"c":"KE6030","t":"Geophysics","a":"Maths","s":"","ss":[],"mt":["Hilmar Gudmundsson"],"im":["Adrian Jenkins"],"lt":[],"n":""},
+  {"c":"KE6030","t":"Geophysics","a":"Maths","s":"","ss":[],"mt":["Hilmar Gudmundsson"],"im":["Adrian Jenkins"],"lt":[],"n":"","cr":20,"rt":["MIM1","MTH1"]},
   {"c":"KE6031","t":"Environmental Pollution and Health","a":"PG / ES","s":"2","ss":["2"],"mt":["Miranda Prendergast-Miller"],"im":["Simon Griffiths"],"lt":[],"n":""},
-  {"c":"KE6032","t":"Tropical and Coastal Research","a":"PG / ES","s":"1","ss":["1"],"mt":["Holly East"],"im":["Leanne Wake"],"lt":[],"n":""},
-  {"c":"KE6033","t":"Translating Environmental Science into policy, outreach & decision making","a":"ES","s":"1","ss":["1"],"mt":["Alister Scott"],"im":["Paul Mann"],"lt":[],"n":""},
-  {"c":"KE6034","t":"Encountering Urban Worlds","a":"HG","s":"1","ss":["1"],"mt":["Jason Luger"],"im":["Peter Forman"],"lt":[],"n":""},
-  {"c":"KE6035","t":"Global Capitalism: Digital and Sustainable Transformations","a":"HG","s":"1","ss":["1"],"mt":["Peter Forman"],"im":["Ana Zavala Guillen"],"lt":[],"n":""},
-  {"c":"KE6036","t":"Enhancing Geographic Skills Through Fieldwork","a":"PG","s":"1","ss":["1"],"mt":["Vasile Ersek"],"im":["Seb Breitenbach"],"lt":[],"n":""},
+  {"c":"KE6032","t":"Tropical and Coastal Research","a":"PG / ES","s":"1","ss":["1"],"mt":["Andrew Suggitt"],"im":["Leanne Wake"],"lt":[],"n":"","cr":20,"rt":["ENE1","GEH1","PSG1"]},
+  {"c":"KE6033","t":"Translating Environmental Science into policy, outreach & decision making","a":"ES","s":"1","ss":["1"],"mt":["Vasile Ersek"],"im":["Paul Mann"],"lt":[],"n":"","cr":20,"rt":["ENE1","ESE1","GEG1","PGH1"]},
+  {"c":"KE6034","t":"Encountering Urban Worlds","a":"HG","s":"1","ss":["1"],"mt":["Jason Luger"],"im":["Peter Forman"],"lt":[],"n":"","cr":20,"rt":["GEY1"]},
+  {"c":"KE6035","t":"Global Capitalism: Digital and Sustainable Transformations","a":"HG","s":"1","ss":["1"],"mt":["Wenying Fu"],"im":["Ana Zavala Guillen"],"lt":[],"n":"","cr":20,"rt":["GEY1"]},
+  {"c":"KE6036","t":"Enhancing Geographic Skills Through Fieldwork","a":"PG","s":"1","ss":["1"],"mt":["Vasile Ersek"],"im":["Seb Breitenbach"],"lt":[],"n":"","cr":20,"rt":["GEG1","GEH1","PGH1","PSG1"]},
+  {"c":"KE6038","t":"","a":"","s":"1","ss":["1"],"mt":["Nick Rutter"],"lt":[],"im":[],"n":"","cr":20,"rt":["ESE1","GEG1","PGH1"]},
   {"c":"KE6041","t":"Geographies of Home, Belonging and the Intimate","a":"HG","s":"2","ss":["2"],"mt":["Kathryn Cassidy"],"im":["Maria Dubrova"],"lt":[],"n":""},
   {"c":"KE7003","t":"Subject Exploration in Disaster and Development","a":"HG","s":"2","ss":["2"],"mt":["Richard Kotter"],"im":["Simon Griffiths"],"lt":[],"n":""},
   {"c":"KE7004","t":"Themes in Sustainable Development","a":"HG","s":"1","ss":["1"],"mt":["Maria Dubrova"],"im":["Isabel Meier"],"lt":[],"n":""},
@@ -859,6 +883,146 @@ const NAME_VARIANTS = [
   ["Mike Rogerson", "Michael Rogerson"], ["Seb Breitenbach", "Sebastian Breitenbach"],
   ["Rachel Ranson", "Rachel Nicola Ranson"], ["Julio Ponce", "Julio de Carvalho Ponce"]
 ];
+
+
+/* ---------------------------------------------------------------------------
+   PROGRAMME ROUTES  –  official programme titles and codes (from Programme_Codes_Lookup.xlsx, student records).
+   code = route code, title = award + route name, g = group, modes = how it is offered,
+   fams = the programme families under the route: f = family code, t = title as recorded, m = mode.
+   --------------------------------------------------------------------------- */
+const PROGRAMME_ROUTES = [
+  {"code":"AFY1","title":"Applied Sciences Foundation Year","g":"Undergraduate, foundation and integrated Master’s","modes":["Sandwich"],"fams":[{"f":"21SAFY-N","t":"Applied Sciences Foundation Year","m":"Sandwich"}]},
+  {"code":"GEY1","title":"BA (Hons) Geography","g":"Undergraduate, foundation and integrated Master’s","modes":["Sandwich"],"fams":[{"f":"21SGEY-N","t":"BA (Hons) Geography","m":"Sandwich"},{"f":"21SXEY-N","t":"BA (Hons) Geography (Extended Degree)","m":"Sandwich"}]},
+  {"code":"MDH1","title":"BMedSci (Hons) Medical Sciences (SGU)","g":"Undergraduate, foundation and integrated Master’s","modes":["Full-time"],"fams":[{"f":"21FMDH-N","t":"Bachelor of Medical Sciences Honours 3 Year SGU","m":"Full-time"}]},
+  {"code":"MSL1","title":"BMedSci Medical Sciences (SGU)","g":"Undergraduate, foundation and integrated Master’s","modes":["Full-time"],"fams":[{"f":"21FMSL-N","t":"Bachelor of Medical Sciences 3 Year SGU","m":"Full-time"}]},
+  {"code":"ABS1","title":"BSc (Hons) Applied Biomedical Science","g":"Undergraduate, foundation and integrated Master’s","modes":["Sandwich"],"fams":[{"f":"21SABS-N","t":"BSc (Hons) Applied Biomedical Science","m":"Sandwich"}]},
+  {"code":"BCH1","title":"BSc (Hons) Biochemistry","g":"Undergraduate, foundation and integrated Master’s","modes":["Sandwich"],"fams":[{"f":"21SBCH-N","t":"BSc (Hons) Biochemistry","m":"Sandwich"},{"f":"21SXCH-N","t":"BSc (Hons) Biochemistry (Extended Degree)","m":"Sandwich"}]},
+  {"code":"CBB1","title":"BSc (Hons) Biological Sciences","g":"Undergraduate, foundation and integrated Master’s","modes":["Sandwich"],"fams":[{"f":"21SCBB-N","t":"BSc (Hons) Biological Sciences","m":"Sandwich"},{"f":"21SXBB-N","t":"BSc (Hons) Biological Sciences (Extended Degree)","m":"Sandwich"}]},
+  {"code":"BIG1","title":"BSc (Hons) Biology","g":"Undergraduate, foundation and integrated Master’s","modes":["Sandwich"],"fams":[{"f":"21SBIG-N","t":"BSc (Hons) Biology","m":"Sandwich"}]},
+  {"code":"BOM1","title":"BSc (Hons) Biomedical Science","g":"Undergraduate, foundation and integrated Master’s","modes":["Part-time","Sandwich"],"fams":[{"f":"21PBOM-N","t":"BSc (Hons) Biomedical Science","m":"Part-time"},{"f":"21SBOM-N","t":"BSc (Hons) Biomedical Science","m":"Sandwich"},{"f":"21SBOQ-N","t":"BSc (Hons) Biomedical Science (with International Foundation Programme)","m":"Sandwich"},{"f":"21SBOU-N","t":"BSc (Hons) Biomedical Science (with International Foundation Programme)","m":"Sandwich"},{"f":"21SXOM-N","t":"BSc (Hons) Biomedical Science (Extended Degree)","m":"Sandwich"}]},
+  {"code":"BOT1","title":"BSc (Hons) Biotechnology","g":"Undergraduate, foundation and integrated Master’s","modes":["Sandwich"],"fams":[{"f":"21SBOT-N","t":"BSc (Hons) Biotechnology","m":"Sandwich"},{"f":"21SXOT-N","t":"BSc (Hons) Biotechnology (Extended Degree)","m":"Sandwich"}]},
+  {"code":"CHY1","title":"BSc (Hons) Chemistry","g":"Undergraduate, foundation and integrated Master’s","modes":["Sandwich"],"fams":[{"f":"21SCHQ-N","t":"BSc (Hons) Chemistry (with International Foundation Programme)","m":"Sandwich"},{"f":"21SCHU-N","t":"BSc (Hons) Chemistry (with International Foundation Programme)","m":"Sandwich"},{"f":"21SCHY-N","t":"BSc (Hons) Chemistry","m":"Sandwich"},{"f":"21SXHY-N","t":"BSc (Hons) Chemistry (Extended Degree)","m":"Sandwich"}]},
+  {"code":"CMG2FRS","title":"BSc (Hons) Criminology and Forensic Science","g":"Undergraduate, foundation and integrated Master’s","modes":["Sandwich"],"fams":[{"f":"21SCMF-N","t":"BSc (Hons) Criminology and Forensic Science","m":"Sandwich"},{"f":"21SXMF-N","t":"BSc (Hons) Criminology and Forensic Science (Extended Degree)","m":"Sandwich"}]},
+  {"code":"ENE1","title":"BSc (Hons) Environmental Science","g":"Undergraduate, foundation and integrated Master’s","modes":["Sandwich"],"fams":[{"f":"21SENE-N","t":"BSc (Hons) Environmental Science","m":"Sandwich"}]},
+  {"code":"ESE1","title":"BSc (Hons) Environmental Science","g":"Undergraduate, foundation and integrated Master’s","modes":["Sandwich"],"fams":[{"f":"21SESE-N","t":"BSc (Hons) Environmental Science","m":"Sandwich"},{"f":"21SXSE-N","t":"BSc (Hons) Environmental Science (Extended Degree)","m":"Sandwich"}]},
+  {"code":"FSU1","title":"BSc (Hons) Food Science and Nutrition","g":"Undergraduate, foundation and integrated Master’s","modes":["Sandwich"],"fams":[{"f":"21SFSQ-N","t":"BSc (Hons) Food Science and Nutrition (with International Foundation Programme)","m":"Sandwich"},{"f":"21SFSU-N","t":"BSc (Hons) Food Science and Nutrition","m":"Sandwich"},{"f":"21SFUU-N","t":"BSc (Hons) Food Science and Nutrition (with International Foundation Programme)","m":"Sandwich"},{"f":"21SXSU-N","t":"BSc (Hons) Food Science and Nutrition (Extended Degree)","m":"Sandwich"}]},
+  {"code":"FRS1","title":"BSc (Hons) Forensic Science","g":"Undergraduate, foundation and integrated Master’s","modes":["Sandwich"],"fams":[{"f":"21SFRS-N","t":"BSc (Hons) Forensic Science","m":"Sandwich"},{"f":"21SXRS-N","t":"BSc (Hons) Forensic Science (Extended Degree)","m":"Sandwich"}]},
+  {"code":"GEG1","title":"BSc (Hons) Geography","g":"Undergraduate, foundation and integrated Master’s","modes":["Sandwich"],"fams":[{"f":"21SGEG-N","t":"BSc (Hons) Geography","m":"Sandwich"},{"f":"21SXGG-N","t":"BSc (Hons) Geography (Extended Degree)","m":"Sandwich"}]},
+  {"code":"GEH1","title":"BSc (Hons) Geography","g":"Undergraduate, foundation and integrated Master’s","modes":["Sandwich"],"fams":[{"f":"21SGEH-N","t":"BSc (Hons) Geography","m":"Sandwich"}]},
+  {"code":"PGH1","title":"BSc (Hons) Physical Geography","g":"Undergraduate, foundation and integrated Master’s","modes":["Sandwich"],"fams":[{"f":"21SPGH-N","t":"BSc (Hons) Physical Geography","m":"Sandwich"},{"f":"21SXGH-N","t":"BSc (Hons) Physical Geography (Extended Degree)","m":"Sandwich"}]},
+  {"code":"PSG1","title":"BSc (Hons) Physical Geography","g":"Undergraduate, foundation and integrated Master’s","modes":["Sandwich"],"fams":[{"f":"21SPSG-N","t":"BSc (Hons) Physical Geography","m":"Sandwich"}]},
+  {"code":"MSG4","title":"Dip HE Medical Sciences (SGU)","g":"Undergraduate, foundation and integrated Master’s","modes":["Full-time"],"fams":[{"f":"25FMSG-N","t":"Dip HE Medical Sciences SGU","m":"Full-time"}]},
+  {"code":"APS4","title":"Exchange Programme (Geography and Natural Sciences Undergraduate)","g":"Undergraduate, foundation and integrated Master’s","modes":["Full-time (exchange)"],"fams":[{"f":"35FAPS-N","t":"Exchange Programme (Geography and Natural Sciences UG)","m":"Full-time (exchange)"}]},
+  {"code":"MSF1","title":"Foundation Year for Medical Sciences","g":"Undergraduate, foundation and integrated Master’s","modes":["Full-time"],"fams":[{"f":"21FMSF-N","t":"Foundation Year for Medical Sciences (SGU)","m":"Full-time"}]},
+  {"code":"GHY1","title":"Geography and Environmental Sciences Foundation Year","g":"Undergraduate, foundation and integrated Master’s","modes":["Sandwich"],"fams":[{"f":"21SGHY-N","t":"Geography and Environmental Sciences Foundation Yr","m":"Sandwich"}]},
+  {"code":"MCH1","title":"MChem Chemistry (Integrated Masters)","g":"Undergraduate, foundation and integrated Master’s","modes":["Sandwich"],"fams":[{"f":"21SMCH-N","t":"Master of Chemistry","m":"Sandwich"}]},
+  {"code":"MMS1","title":"MMedSci Medical Sciences (SGU)","g":"Undergraduate, foundation and integrated Master’s","modes":["Full-time"],"fams":[{"f":"21FMMS-N","t":"Master in Medical Sciences","m":"Full-time"}]},
+  {"code":"MBB6","title":"MRes Medical Biotechnology and Biosciences","g":"Postgraduate taught","modes":["Full-time"],"fams":[{"f":"13FMBB-N","t":"MRes Medical Biotechnology and Biosciences (dual award University of Colombo)","m":"Full-time"}]},
+  {"code":"BII6","title":"MSc Bioinformatics and AI-Driven Omics","g":"Postgraduate taught","modes":["Full-time"],"fams":[{"f":"14FBII-N","t":"MSc Bioinformatics and AI-Driven Omics","m":"Full-time"}]},
+  {"code":"BTY6","title":"MSc Biotechnology","g":"Postgraduate taught","modes":["Full-time","Part-time"],"fams":[{"f":"14FBTY-N","t":"MSc Biotechnology FT","m":"Full-time"},{"f":"14PBTY-N","t":"MSc Biotechnology","m":"Part-time"}]},
+  {"code":"DSD6","title":"MSc Disaster Management and Sustainable Development","g":"Postgraduate taught","modes":["Full-time"],"fams":[{"f":"14FDSD-N","t":"MSc Disaster Management & Sustainable Development","m":"Full-time"}]},
+  {"code":"DDS6","title":"MSc Disaster Management and Sustainable Development with Advanced Practice","g":"Postgraduate taught","modes":["Full-time"],"fams":[{"f":"14SDMS-N","t":"MSc Dis Man and Sus Dev with Advanced Practice","m":"Full-time"}]},
+  {"code":"ESR6","title":"MSc Earth and Space Observations","g":"Postgraduate taught","modes":["Full-time"],"fams":[{"f":"14FESR-N","t":"MSc Earth and Space Observations","m":"Full-time"}]},
+  {"code":"FRS6","title":"MSc Forensic Science","g":"Postgraduate taught","modes":["Full-time","Part-time"],"fams":[{"f":"14FFRS-N","t":"Master of Science Forensic Science","m":"Full-time"},{"f":"14PFRS-N","t":"Master of Science Forensic Science Part-Time","m":"Part-time"}]},
+  {"code":"GLB6","title":"MSc Global Development","g":"Postgraduate taught","modes":["Full-time"],"fams":[{"f":"14FGLB-N","t":"MSc Global Development","m":"Full-time"},{"f":"14FGLV-N","t":"MSc Global Development","m":"Full-time"}]},
+  {"code":"GDP6","title":"MSc Global Development with Advanced Practice","g":"Postgraduate taught","modes":["Full-time"],"fams":[{"f":"14SGDP-N","t":"MSc Global Development with Advanced Practice","m":"Full-time"}]},
+  {"code":"ITD6","title":"MSc International Development","g":"Postgraduate taught","modes":["Full-time"],"fams":[{"f":"14FITD-N","t":"MSc International Development","m":"Full-time"},{"f":"14FITZ-N","t":"MSc International Development","m":"Full-time"}]},
+  {"code":"MGY6","title":"MSc Microbiology","g":"Postgraduate taught","modes":["Full-time","Part-time"],"fams":[{"f":"14FMGY-N","t":"MSc Microbiology FT","m":"Full-time"},{"f":"14PMGY-N","t":"MSc Microbiology PT","m":"Part-time"}]},
+  {"code":"NZS6","title":"MSc Net Zero Science, Policy and Practice","g":"Postgraduate taught","modes":["Full-time"],"fams":[{"f":"14FNZS-N","t":"MSc Net Zero Science, Policy and Practice","m":"Full-time"}]},
+  {"code":"NLS6","title":"MSc Nutritional Science","g":"Postgraduate taught","modes":["Full-time","Part-time"],"fams":[{"f":"14FNLS-N","t":"MSc Nutritional Science FT","m":"Full-time"},{"f":"14PNLS-N","t":"MSc Nutritional Science PT","m":"Part-time"}]},
+  {"code":"ONE8","title":"Centre for Doctoral Training - OnePlanet","g":"Exchange, short courses and doctoral training","modes":["Full-time"],"fams":[{"f":"38FONE-N","t":"Centre for Doctoral Training - Oneplanet","m":"Full-time"}]},
+  {"code":"AEX8","title":"Exchange Programme (Geography and Natural Sciences Postgraduate)","g":"Exchange, short courses and doctoral training","modes":["Full-time (exchange)"],"fams":[{"f":"38FAEX-N","t":"Exchange Programme (Geography and Natural Sciences Postgraduate)","m":"Full-time (exchange)"}]},
+  {"code":"APS8","title":"Exchange Programme (Geography and Natural Sciences Undergraduate)","g":"Exchange, short courses and doctoral training","modes":["Full-time"],"fams":[{"f":"38FLSM-N","t":"Exchange Programme (Geography and Natural Sciences Undergraduate","m":"Full-time"}]},
+  {"code":"BOS8","title":"NEBOSH Certificate in Occupational Health and Safety","g":"Exchange, short courses and doctoral training","modes":["Part-time"],"fams":[{"f":"34PBOS-N","t":"NEBOSH Nat Gen Cert in Occ Health and Safety PT","m":"Part-time"}]},
+  {"code":"NEB8","title":"NEBOSH Diploma in Occupational Health and Safety","g":"Exchange, short courses and doctoral training","modes":["Part-time"],"fams":[{"f":"34PNEB-N","t":"NEBOSH Nat Dip Occupational Health and Safety PT","m":"Part-time"}]},
+  {"code":"ASC8","title":"University Credits (Undergraduate) Applied Sciences","g":"Exchange, short courses and doctoral training","modes":["Part-time"],"fams":[{"f":"38PASC-N","t":"University Credits (Undergraduate) Appld Sc","m":"Part-time"}]}
+];
+/* Titles for route codes that appear on modules but are not GNS programmes (other Schools). */
+const ROUTE_TITLES_OTHER = {"MIM1": "Mathematics (Integrated Masters)", "MTH1": "BSc (Hons) Mathematics"};
+/* Links from the programme leaders list (Staff Roles wording) to the official routes. Matched by title. */
+const PROGRAMME_ROUTE_MAP = {
+ "BA (Hons) Geography": [
+  "GEY1"
+ ],
+ "BSc (Hons) Geography; BSc (Hons) Physical Geography": [
+  "GEG1",
+  "GEH1",
+  "PGH1",
+  "PSG1"
+ ],
+ "BSc (Hons) Environmental Science": [
+  "ESE1",
+  "ENE1"
+ ],
+ "Foundation Year in Geography and Environmental Sciences": [
+  "GHY1"
+ ],
+ "MSc Disaster Management and Sustainable Development (including with Advanced Practice)": [
+  "DSD6",
+  "DDS6"
+ ],
+ "MSc Global Development (including with Advanced Practice)": [
+  "GLB6",
+  "GDP6"
+ ],
+ "BSc (Hons) Applied Biomedical Sciences": [
+  "ABS1"
+ ],
+ "BSc (Hons) Biochemistry": [
+  "BCH1"
+ ],
+ "BSc (Hons) Biological Sciences; BSc (Hons) Biotechnology; BSc (Hons) Biological Sciences (Neuro Biology)": [
+  "CBB1",
+  "BOT1"
+ ],
+ "BSc (Hons) Biomedical Sciences": [
+  "BOM1"
+ ],
+ "MSc Biotechnology": [
+  "BTY6"
+ ],
+ "MSc Microbiology": [
+  "MGY6"
+ ],
+ "BSc (Hons) Chemistry; MChem Chemistry": [
+  "CHY1",
+  "MCH1"
+ ],
+ "BSc (Hons) Criminology and Forensic Science": [
+  "CMG2FRS"
+ ],
+ "BSc (Hons) Forensic Science": [
+  "FRS1"
+ ],
+ "MSc Forensic Science": [
+  "FRS6"
+ ],
+ "BSc (Hons) Food Science and Nutrition (including Human Nutrition)": [
+  "FSU1"
+ ],
+ "MSc Nutritional Science": [
+  "NLS6"
+ ],
+ "Foundation Year for Medical Sciences; Foundation Year in Applied Sciences": [
+  "MSF1",
+  "AFY1"
+ ],
+ "NEBOSH (Certificate/Diploma) in Occupational Health and Safety": [
+  "BOS8",
+  "NEB8"
+ ],
+ "SGU: BMedSci Medical Sciences": [
+  "MSL1",
+  "MDH1"
+ ],
+ "BMS, Sri Lanka – MRes Medical Biotechnology and Biosciences": [
+  "MBB6"
+ ],
+ "SGU, Grenada – Medicine Pathway Programme (Reverse CV): BMedSci Med Sci, DipHE Med Sci, Cert HE Med Sci": [
+  "MSG4"
+ ]
+};
+const PROGRAMME_NOLEADER_ROUTES = { "MSc NetZero": ["NZS6"], "MSc Bioinformatics": ["BII6"] };
 
 /* ============================  END OF SECTION A  ============================ */
 
@@ -1044,6 +1208,14 @@ details.filters summary::after{content:"+";font-size:1.5rem;color:var(--accent)}
 details.filters[open] summary::after{content:"–"}
 details.filters .fbody{padding:0 1rem 1rem}
 details.filters .fbody h3{font-size:.95rem;color:var(--accent);margin:.8rem 0 .2rem}
+details.rts{margin-top:.5rem;border-top:1px dashed var(--line);padding-top:.2rem}
+details.rts summary{cursor:pointer;min-height:2.75rem;display:flex;align-items:center;justify-content:space-between;color:var(--accent);font-weight:700;font-size:.92rem;list-style:none}
+details.rts summary::-webkit-details-marker{display:none}
+details.rts summary::after{content:"+";font-size:1.3rem}
+details.rts[open] summary::after{content:"–"}
+.rtl{display:flex;flex-wrap:wrap;gap:0 .9rem;align-items:center;margin:.2rem 0 .3rem}
+.mod .mh.none{color:var(--muted);font-style:italic;font-weight:600}
+.tag.t-route{color:var(--accent3)} .tag.t-link{color:var(--accent2)}
 @media(max-width:400px){nav.tabs button{font-size:.7rem}}
 
 footer.foot{margin-top:2rem;padding:1rem 0 1.5rem;border-top:1px solid var(--line);font-size:.88rem;color:var(--muted)}
@@ -1283,6 +1455,21 @@ const PHOTOS = {"katy-jenkins":"/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHCAkIBgoJCAkM
     return h + '</div>';
   }
 
+  /* ---------- programme routes ---------- */
+  var ROUTE_BY = {};
+  PROGRAMME_ROUTES.forEach(function (r) { ROUTE_BY[r.code] = r; });
+  function routeTitle(c) { return ROUTE_BY[c] ? ROUTE_BY[c].title : (ROUTE_TITLES_OTHER[c] || c); }
+  function routeLine(codes) {
+    var by = {}, order = [];
+    codes.forEach(function (c) { var t = routeTitle(c); if (!by[t]) { by[t] = []; order.push(t); } by[t].push(c); });
+    return order.map(function (t) { return '<span><button class="nm" data-open="route:' + by[t][0] + '">' + esc(t) + '</button> <span class="small">(' + esc(by[t].join(', ')) + ')</span></span>'; }).join('');
+  }
+  function leadersForRoute(code) {
+    var out = [];
+    PROGRAMMES.forEach(function (p) { if ((PROGRAMME_ROUTE_MAP[p.name] || []).indexOf(code) >= 0) p.leaders.forEach(function (l) { out.push(l); }); });
+    return out;
+  }
+
   /* ---------- modules ---------- */
   var PNAME = {};
   PEOPLE.forEach(function (p) { PNAME[norm(p.name.replace(/^(Prof|Dr)\s+/, ''))] = p.id; });
@@ -1301,7 +1488,7 @@ const PHOTOS = {"katy-jenkins":"/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHCAkIBgoJCAkM
   function areaLabel(a) { return a ? a.split('/').map(function (x) { x = x.trim(); return AREA_LABELS[x] || x; }).join(' / ') : ''; }
   var MODS = MODULES.map(function (m) {
     var inactive = /^(Does not run|Module withdrawn)/.test(m.n), noIM = /No internal moderator/.test(m.n);
-    var base = m.c + ' ' + m.t + ' ' + areaLabel(m.a) + ' ' + semLabel(m.s);
+    var base = m.c + ' ' + m.t + ' ' + areaLabel(m.a) + ' ' + semLabel(m.s) + ' ' + (m.rt || []).map(function (c) { return c + ' ' + routeTitle(c); }).join(' ');
     var vnames = function (arr) { return arr.map(function (n) { return [n].concat(variantsOf(n)).join(' '); }).join(' '); };
     return Object.assign({}, m, {
       inactive: inactive, noIM: noIM,
@@ -1312,13 +1499,14 @@ const PHOTOS = {"katy-jenkins":"/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHCAkIBgoJCAkM
   });
   function nameBtn(n) { return '<button class="nm" data-mname="' + esc(n) + '" aria-label="Show everything ' + esc(n) + ' is listed on">' + esc(n) + '</button>'; }
   function moduleCard(m, withSrc) {
-    var h = '<div class="card mod"><div class="mh">' + esc(m.t) + '</div><div class="mtags"><span class="code">' + esc(m.c) + '</span>' + (m.s ? '<span>' + esc(semLabel(m.s)) + '</span>' : '') + (m.a ? '<span>Area: ' + esc(areaLabel(m.a)) + '</span>' : '') + '</div><dl>';
+    var h = '<div class="card mod"><div class="mh' + (m.t ? '' : ' none') + '">' + (m.t ? esc(m.t) : 'Title not in the documents yet') + '</div><div class="mtags"><span class="code">' + esc(m.c) + '</span>' + (m.s ? '<span>' + esc(semLabel(m.s)) + '</span>' : '') + (m.cr ? '<span>' + esc(m.cr) + ' credits</span>' : '') + (m.a ? '<span>Area: ' + esc(areaLabel(m.a)) + '</span>' : '') + '</div><dl>';
     h += '<dt>Module tutor</dt><dd>' + (m.mt.length ? m.mt.map(nameBtn).join('') : '<span class="none">' + (m.inactive ? '–' : 'not listed yet') + '</span>') + '</dd>';
     h += '<dt>Internal moderator</dt><dd>' + (m.im.length ? m.im.map(nameBtn).join('') : '<span class="none">' + (m.noIM ? 'not required' : (m.inactive ? '–' : 'not listed yet')) + '</span>') + '</dd>';
     if (m.lt.length) h += '<dt>Lead technician</dt><dd>' + m.lt.map(nameBtn).join('') + '</dd>';
     h += '</dl>';
+    if (m.rt && m.rt.length) h += '<details class="rts"><summary>Listed on ' + m.rt.length + ' programme route' + (m.rt.length === 1 ? '' : 's') + '</summary><div class="rtl">' + routeLine(m.rt) + '</div></details>';
     if (m.n) h += '<div class="mnote' + (m.inactive ? ' off' : '') + '">' + esc(m.n) + '</div>';
-    if (withSrc) h += srcLine('MODULES');
+    if (withSrc) h += srcLine('MODULES') + (m.rt && m.rt.length ? ' ' + srcLine('SEOPT') : '');
     return h + '</div>';
   }
   function nameHit(names, q) {
@@ -1360,10 +1548,12 @@ const PHOTOS = {"katy-jenkins":"/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHCAkIBgoJCAkM
   GUIDES.forEach(function (G) { addIdx('guide', G.id, G.title, G.blurb + ' ' + strip(G.html), G.kw, 1); });
   PEOPLE.forEach(function (p) { addIdx('person', p.id, p.name + ' ' + (p.aka || ''), p.roles.map(function (r) { return r.r; }).join(' ') + ' ' + (p.resp || []).join(' '), (p.aka || '') + ' ' + (p.office || ''), 1); });
   PROGRAMMES.forEach(function (pr, i) { addIdx('programme', String(i), pr.name, pr.leaders.map(function (l) { return (P[l.id] ? P[l.id].name : '') + ' ' + (l.note || ''); }).join(' '), 'programme leader course degree', 1); });
+  USEFUL_LINKS.forEach(function (L, i) { addIdx('link', String(i), L.t, 'link website web page sharepoint hub', 'link website sharepoint hub', 1); });
+  PROGRAMME_ROUTES.forEach(function (r, i) { addIdx('route', r.code, r.title + ' ' + r.code, r.fams.map(function (f) { return f.f + ' ' + f.t; }).join(' ') + ' ' + leadersForRoute(r.code).map(function (l) { return P[l.id] ? P[l.id].name : ''; }).join(' '), 'programme title code route family degree', 1); });
   MODS.forEach(function (m, i) { addIdx('module', String(i), m.c + ' ' + m.t, m.nall + ' module tutor internal moderator lead technician', 'module mt im tutor moderator technician', 0); });
   TERMS.forEach(function (t, i) { addIdx('term', String(i), t.t + ' ' + t.full, t.d, 'acronym meaning stands for', 1); });
-  var KIND_ORDER = { task: 0, date: 1, timescale: 2, faq: 3, guide: 4, person: 5, module: 6, programme: 7, term: 8 };
-  var KIND_LABEL = { task: 'Who to ask', date: 'Date', timescale: 'Timescale', faq: 'Question', guide: 'Guide', person: 'Person', programme: 'Programme', module: 'Module', term: 'Acronym' };
+  var KIND_ORDER = { task: 0, date: 1, timescale: 2, faq: 3, guide: 4, person: 5, module: 6, programme: 7, route: 7, link: 7, term: 8 };
+  var KIND_LABEL = { task: 'Who to ask', date: 'Date', timescale: 'Timescale', faq: 'Question', guide: 'Guide', person: 'Person', programme: 'Programme', module: 'Module', route: 'Programme title', link: 'Link', term: 'Acronym' };
   var STOP = { who: 1, what: 1, how: 1, do: 1, does: 1, i: 1, the: 1, a: 1, an: 1, to: 1, for: 1, of: 1, is: 1, are: 1, my: 1, can: 1, about: 1, when: 1, where: 1, should: 1, in: 1, on: 1, and: 1, or: 1, me: 1, we: 1, our: 1, get: 1, need: 1, there: 1, it: 1, with: 1, if: 1 };
   function stem(t) {
     if (t.length > 5 && /ing$/.test(t)) return t.slice(0, -3);
@@ -1417,6 +1607,8 @@ const PHOTOS = {"katy-jenkins":"/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHCAkIBgoJCAkM
     if (it.kind === 'guide') { var G = GUIDES.filter(function (g) { return g.id === it.id; })[0]; return '<button class="item" data-open="guide:' + G.id + '"><span class="grow">' + tag('guide') + '<span class="ti">' + esc(G.title) + '</span><span class="su">' + esc(G.blurb) + '</span></span><span class="more">Open</span></button>'; }
     if (it.kind === 'person') return personItem(P[it.id]);
     if (it.kind === 'module') return moduleCard(MODS[+it.id], true);
+    if (it.kind === 'link') return '<div class="card">' + tag('link') + linkBtn(USEFUL_LINKS[+it.id]) + '</div>';
+    if (it.kind === 'route') { var R = ROUTE_BY[it.id]; return '<button class="item" data-open="route:' + R.code + '"><span class="grow">' + tag('route') + '<span class="ti">' + esc(R.title) + '</span><span class="su">' + esc(R.code) + ' · ' + esc(R.modes.join(', ')) + '</span></span><span class="more">Details</span></button>'; }
     if (it.kind === 'programme') { var pr = PROGRAMMES[+it.id]; return '<div class="card">' + tag('programme') + '<b>' + esc(pr.name) + '</b><div class="chips">' + pr.leaders.map(function (l) { return personChip(l.id, l.note); }).join('') + '</div>' + srcLine('ROLES') + '</div>'; }
     if (it.kind === 'term') { var t = TERMS[+it.id]; return '<div class="card">' + tag('term') + '<b>' + esc(t.t) + (t.full ? ' – ' + esc(t.full) : '') + '</b>' + (t.d ? '<p>' + esc(t.d) + '</p>' : '') + srcLine(t.src) + '</div>'; }
     return h;
@@ -1471,7 +1663,7 @@ const PHOTOS = {"katy-jenkins":"/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHCAkIBgoJCAkM
 
   function viewWho() {
     var h = '<h2 id="vt" tabindex="-1">Who to ask</h2>';
-    h += '<div class="seg" role="group" aria-label="Choose a list">' + [['tasks', 'By task'], ['people', 'People'], ['programmes', 'Programmes']].map(function (t) { return '<button data-who="' + t[0] + '" aria-pressed="' + (state.who === t[0]) + '">' + t[1] + '</button>'; }).join('') + '</div>';
+    h += '<div class="chips" role="group" aria-label="Choose a list">' + [['tasks', 'By task'], ['people', 'People'], ['programmes', 'Programmes'], ['codes', 'Titles'], ['links', 'Links']].map(function (t) { return '<button class="chip" data-who="' + t[0] + '" aria-pressed="' + (state.who === t[0]) + '">' + t[1] + '</button>'; }).join('') + '</div>';
     if (state.who === 'tasks') {
       var groups = []; TASKS.forEach(function (t) { if (groups.indexOf(t.g) < 0) groups.push(t.g); });
       groups.forEach(function (g) {
@@ -1482,14 +1674,19 @@ const PHOTOS = {"katy-jenkins":"/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHCAkIBgoJCAkM
       h += '<label for="pf" class="sr">Filter people by name or role</label><input id="pf" class="f" type="search" placeholder="Filter by name or role…" autocomplete="off" value="' + esc(state.pf || '') + '">';
       h += '<div class="chips" role="group" aria-label="Filter by group">' + ['All'].concat(GROUPS).map(function (g) { return '<button class="chip" data-pg="' + esc(g) + '" aria-pressed="' + (state.pgroup === g) + '">' + esc(g) + '</button>'; }).join('') + '</div>';
       h += '<div id="plist">' + peopleList() + '</div>';
+    } else if (state.who === 'links') {
+      h += '<p class="small">University sites that open in a new tab. Most need your University login.</p>' + linkList() + srcLine('LINKS');
+    } else if (state.who === 'codes') {
+      h += '<p class="small">Official programme titles and codes from the student records lookup. Tap one for details.</p><label for="rf" class="sr">Filter programme titles and codes</label><input id="rf" class="f" type="search" placeholder="Title or code (e.g. forensic, GEY1)" autocomplete="off" autocapitalize="none" value="' + esc(state.rf || '') + '"><div id="rlist">' + routeList() + '</div>' + srcLine('PROGS');
     } else {
       h += '<p class="small">Programme leaders as listed in the Staff Roles document, November 2026. Fuller list: <a href="' + esc(LINKS.leadersXlsx.u) + '" target="_blank" rel="noopener noreferrer">Programme Leaders (26-27) spreadsheet</a> (staff login needed).</p>';
       [['uk', 'Programmes'], ['tne', 'Transnational (TNE) programmes'], ['dtp', 'Doctoral training programmes']].forEach(function (g) {
         h += '<section class="sect"><h3>' + g[1] + '</h3>' + PROGRAMMES.filter(function (p) { return p.group === g[0]; }).map(function (pr) {
-          return '<div class="card"><b>' + esc(pr.name) + '</b><div class="chips">' + pr.leaders.map(function (l) { return personChip(l.id, l.note); }).join('') + '</div></div>';
+          var rts = PROGRAMME_ROUTE_MAP[pr.name];
+          return '<div class="card"><b>' + esc(pr.name) + '</b>' + (rts ? '<div class="rtl"><span class="small">Official title:</span>' + routeLine(rts) + '</div>' : '') + '<div class="chips">' + pr.leaders.map(function (l) { return personChip(l.id, l.note); }).join('') + '</div></div>';
         }).join('') + '</section>';
       });
-      h += '<div class="warn">No programme leader is named in the Staff Roles document for: ' + esc(PROGRAMMES_NO_LEADER.join(', ')) + '. These appear on the structure chart. Ask your Head of Subject.</div>' + srcLine('ROLES') + ' ' + srcLine('STRUCT');
+      h += '<div class="warn">No programme leader is named in the Staff Roles document for: ' + PROGRAMMES_NO_LEADER.map(function (n) { var rs = PROGRAMME_NOLEADER_ROUTES[n]; return esc(rs ? routeTitle(rs[0]) + ' (' + rs[0] + ')' : n); }).join(', ') + '. These appear on the structure chart. Ask your Head of Subject.</div>' + srcLine('ROLES') + ' ' + srcLine('STRUCT') + ' ' + srcLine('PROGS');
     }
     return h;
   }
@@ -1534,6 +1731,38 @@ const PHOTOS = {"katy-jenkins":"/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHCAkIBgoJCAkM
     h += '<div id="mlist">' + modList() + '</div>';
     h += '<p class="small">Lead technician is shown only where the spreadsheet lists one. “Not listed yet” means the spreadsheet has no name for 2026/27. Spellings of the same person (for example Ben and Benjamin Brock) are treated as one.</p>' + srcLine('MODULES');
     return h;
+  }
+
+  function linkBtn(L) { return '<a class="linkbtn" href="' + esc(L.u) + '" target="_blank" rel="noopener noreferrer"><span>' + esc(L.t) + '</span><small>' + (L.staff ? 'staff login needed' : 'opens in a new tab') + '</small></a>'; }
+  function linkList() { return USEFUL_LINKS.map(linkBtn).join(''); }
+  function routeList() {
+    var f = norm(state.rf || ''), groups = [];
+    var list = PROGRAMME_ROUTES.filter(function (r) {
+      if (!f) return true;
+      var hay = norm(r.title + ' ' + r.code + ' ' + r.fams.map(function (x) { return x.f + ' ' + x.t; }).join(' '));
+      return f.split(' ').every(function (t) { return hay.indexOf(t) >= 0; });
+    });
+    list.forEach(function (r) { if (groups.indexOf(r.g) < 0) groups.push(r.g); });
+    var h = groups.map(function (g) {
+      return '<section class="sect"><h3>' + esc(g) + '</h3>' + list.filter(function (r) { return r.g === g; }).map(function (r) {
+        return '<button class="item" data-open="route:' + r.code + '"><span class="grow"><span class="ti">' + esc(r.title) + '</span><span class="su">' + esc(r.code) + ' · ' + esc(r.modes.join(', ')) + '</span></span><span class="more">Details</span></button>';
+      }).join('') + '</section>';
+    }).join('');
+    return (h || '<div class="card">Nothing matches. ' + esc(META.notCovered) + '</div>') + '<p class="small">' + list.length + ' programme route' + (list.length === 1 ? '' : 's') + ' shown.</p>';
+  }
+  function routeSheet(code) {
+    var r = ROUTE_BY[code], t = routeTitle(code), h = '<p class="small">Programme route code <b>' + esc(code) + '</b></p>';
+    if (!r) { h += '<p>This route is not one of the School’s own programmes. It is listed on a module that is shared with another School.</p>' + srcLine('PROGS'); pushAndShow(t, h); return; }
+    h += '<p>' + esc(r.g) + '. Offered: ' + esc(r.modes.join(', ')) + '.</p>';
+    var same = PROGRAMME_ROUTES.filter(function (x) { return x.title === r.title && x.code !== code; });
+    if (same.length) h += '<p class="small">Other route code' + (same.length === 1 ? '' : 's') + ' with the same title: ' + same.map(function (x) { return '<button class="nm" data-open="route:' + x.code + '">' + esc(x.code) + '</button>'; }).join(' ') + '</p>';
+    h += '<h3>Versions in the student records</h3><ul>' + r.fams.map(function (f) { return '<li>' + esc(f.t) + ' <span class="small">(' + esc(f.f) + (f.m ? ', ' + esc(f.m) : '') + ')</span></li>'; }).join('') + '</ul>';
+    var ld = leadersForRoute(code);
+    if (ld.length) h += '<h3>Programme leader</h3><div class="chips">' + ld.map(function (l) { return personChip(l.id, l.note); }).join('') + '</div><p class="small">Matched by programme title. See the Programmes tab for the full Staff Roles wording.</p>';
+    var mc = MODS.filter(function (m) { return (m.rt || []).indexOf(code) >= 0; }).length;
+    if (mc) h += '<h3>Modules</h3><p>' + mc + ' Semester 1 option module' + (mc === 1 ? '' : 's') + ' in the 2026/27 option data list this route.</p>';
+    h += srcLine('PROGS');
+    pushAndShow(t, h);
   }
 
   function viewGuides() {
@@ -1656,6 +1885,7 @@ const PHOTOS = {"katy-jenkins":"/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHCAkIBgoJCAkM
     else if (t === 'task') taskSheet(id);
     else if (t === 'guide') guideSheet(id);
     else if (t === 'source') sourceSheet(id);
+    else if (t === 'route') routeSheet(id);
     else if (t === 'view') { var q = id.split(':'); setView(q[0], q[1]); }
   }
 
@@ -1715,7 +1945,7 @@ const PHOTOS = {"katy-jenkins":"/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHCAkIBgoJCAkM
       if (attr === 'data-msem') state.msem = val; else state.mrole = val;
       state.mlimit = 40; render(false); var cb = $('[' + attr + '="' + val + '"]'); if (cb) cb.focus(); return;
     }
-    if (el.hasAttribute('data-who')) { state.who = el.getAttribute('data-who'); render(false); return; }
+    if (el.hasAttribute('data-who')) { state.who = el.getAttribute('data-who'); render(false); var wb = $('[data-who="' + state.who + '"]'); if (wb) wb.focus({ preventScroll: true }); return; }
     if (el.hasAttribute('data-pg')) { state.pgroup = el.getAttribute('data-pg'); render(false); var c = $('[data-pg="' + state.pgroup.replace(/"/g, '') + '"]'); if (c) c.focus(); return; }
     if (el.hasAttribute('data-star')) {
       var id = el.getAttribute('data-star'); if (STARS[id]) delete STARS[id]; else STARS[id] = true; saveStars();
@@ -1742,6 +1972,7 @@ const PHOTOS = {"katy-jenkins":"/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHCAkIBgoJCAkM
   document.addEventListener('input', function (e) {
     if (e.target.id === 'q') { state.q = e.target.value; render(false); }
     else if (e.target.id === 'pf') { state.pf = e.target.value; $('#plist').innerHTML = peopleList(); }
+    else if (e.target.id === 'rf') { state.rf = e.target.value; $('#rlist').innerHTML = routeList(); }
     else if (e.target.id === 'mf') { state.mq = e.target.value; state.mlimit = 40; $('#mlist').innerHTML = modList(); }
     else if (e.target.id === 'tf') { state.tf = e.target.value; $('#tlist').innerHTML = termList(); }
     else if (e.target.id === 'fb-text') fbUpdate();
