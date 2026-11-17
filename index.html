@@ -100,6 +100,8 @@ const SOURCES = {
   PROGS: { short: "Programme codes lookup, Nov 2026", name: "Programme Codes Lookup (student records: programme families, routes and titles)", date: "File saved 17 November 2026", file: "Programme_Codes_Lookup.xlsx", note: "Official titles here are built from the award and the route name. The wording exactly as recorded is shown on each programme. Only taught programmes of the School are used; PhD and MPhil rows are left out." },
   SEOPT: { short: "Option module data, Nov 2026", name: "Science and Environment option module data (recorded module tutors, credits and programme routes)", date: "File saved 17 November 2026", file: "SE_Option_Module_Data.xlsx", note: "Covers option modules only, and for 2026/27 only Semester 1 modules. Student numbers in the file are not shown." },
   LINKS: { short: "Useful links, added Nov 2026", name: "Useful links supplied for the School", date: "17 November 2026", file: "(web addresses supplied by the app’s maintainer)", note: "These links open University sites. Most need a University login, and some may only work on the University network." },
+  TTBL: { short: "Timetables Teams post, 17 Nov 2026", name: "Semester 2 Draft Timetables – Review Window Open and Teams Reporting (Teams post by Laura Sim, Geography and Natural Sciences Timetables channel)", date: "17 November 2026 (posted 10:19)", file: "(Teams activity page pasted into the project)", note: "Follows an email from Stacy Harris, Timetabling Systems Manager, to Associate Heads of School." },
+  WLOAD: { short: "Workload planning posts, 13 and 16 Nov 2026", name: "Academic Workload Planning channel posts about the new Power BI report", date: "13 and 16 November 2026", file: "(Teams activity page pasted into the project)", note: "" },
   GLOSS:  { short: "Glossary of Key Terms, June 2018", name: "Glossary of Key Terms – Academic Regulations for Taught Awards (GD.033-v001)", date: "June 2018", file: "Glossary_of_Key_Terms_-_Academic_Regulations_for_Taught_Awards.pdf", note: "An older document. Some section numbers have changed since (for example, academic misconduct is now section 1.10 of the regulations)." }
 };
 
@@ -120,9 +122,12 @@ const KEY_DATES = [
   { id: "tw1",          s: "2026-09-28", wc: true, t: "Teaching Week 1 (Semester 1)" },
   { id: "pgtpab",       s: "2026-10-15", t: "Autumn PGT PAB marks entry deadline" },
   { id: "pgtrelease",   s: "2026-10-22", t: "Autumn PGT marks released" },
+  { id: "ttdraft",      s: "2026-11-16", t: "Semester 2 draft timetables released", d: "Check them in MyTimetable or TermTime.", src: "TTBL" },
   { id: "enrich1",      s: "2026-11-02", wc: true, t: "Semester 1 Enrichment Week (Teaching Week 6): all UG and PGT, Newcastle" },
   { id: "enrich2",      s: "2026-11-09", wc: true, t: "Semester 1 Enrichment Week (Teaching Week 7): PGT London" },
   { id: "setting2",     s: "2026-12-04", t: "Assessment setting deadline: Semester 2, and year-long (Semester 2 and 3 components)", d: "First sit and resit briefs to be uploaded to e:Vision and to the Blackboard sites.", note: "The original email says “Friday 5 December”, but 5 December 2026 is a Saturday. Shown here as Friday 4 December (confirmed when this app was set up)." },
+  { id: "ttreview",     s: "2026-11-27", time: "close of play", t: "Semester 2 draft timetables: review and change request deadline", d: "Send changes with the Timetable Change Request form in the TCR channel on Teams. Later requests will be tried but can’t be guaranteed.", src: "TTBL", open: "guide:sem2-timetables" },
+  { id: "ttfinal",      s: "2026-12-16", t: "Final Semester 2 student timetables published", src: "TTBL" },
   { id: "tw12end",      s: "2026-12-18", t: "Teaching Week 12 ends" },
   { id: "winterstart",  s: "2026-12-21", t: "Winter Vacation starts" },
   { id: "winterend",    s: "2027-01-08", t: "Winter Vacation ends" }
@@ -262,6 +267,9 @@ const PEOPLE = [
   { id: "ros-mcgee", name: "Ros McGee", roles: [{ g: "Other contacts", r: "GNS HR manager" }], aka: "hr human resources", email: "ros.mcgee@northumbria.ac.uk", phone: "", office: "", src: "WHO" },
   { id: "andy-suggitt-fieldtrip", name: "Andy Suggitt", roles: [{ g: "Other contacts", r: "Fieldtrip Coordinator (as named in “Who to contact”)" }], aka: "fieldwork field trip", email: "", phone: "", office: "", src: "WHO", noPhoto: true, note: "The Staff Roles document does not list a Fieldtrip Coordinator. It lists Dr Andrew Suggitt as Foundation Year programme leader, who may be the same person." },
 
+  { id: "laura-sim", name: "Laura Sim", roles: [{ g: "Other contacts", r: "Timetabling team: sent the Semester 2 draft timetables message" }], aka: "timetabling timetable tcr", email: "", phone: "", office: "", src: "TTBL", resp: ["Questions about the Semester 2 draft timetables and January induction scheduling"] },
+  { id: "stacy-harris", name: "Stacy Harris", roles: [{ g: "Other contacts", r: "Timetabling Systems Manager, Student, Library and Academic Services" }], aka: "timetabling timetable systems", email: "", phone: "", office: "", src: "TTBL" },
+
   /* Teams and mailboxes */
   { id: "sits-helpdesk", name: "SITS Helpdesk", team: true, roles: [{ g: "Teams & mailboxes", r: "Queries on student records and marks entry" }], aka: "sits records marks entry srs", email: "rg.srs@northumbria.ac.uk", phone: "", office: "", src: "MARKS" },
   { id: "cfm-team", name: "CFM Team", team: true, roles: [{ g: "Teams & mailboxes", r: "Missing module availability (MAV) records and marks-entry set-up problems" }], aka: "mav module availability", email: "rg.cfm@northumbria.ac.uk", phone: "", office: "", src: "MARKS" },
@@ -335,7 +343,7 @@ const TASKS = [
   { id: "tech-support", g: "Teaching", title: "Technical support for teaching", ask: "New support (for example a new module): Technical Manager Paul Broom. Existing modules: the Level 6 technician for your area (Chemistry and Forensic Science: Suzanne Lonsdale; GNS research: Callum Crawford; Biosciences: Sam Wood).", people: ["paul-broom", "suzanne-lonsdale", "callum-crawford", "sam-wood"], links: [], kw: "technician labs practical pep", src: "WHO", d: ["For Chemistry, Forensic Sciences and Biosciences, practical PEPs are usually prepared by the technical staff member supporting the session, with input from the academic. They must be signed off by Danny Arends (Associate Head, Education) before the practical takes place."] },
   { id: "module-changes", g: "Teaching", title: "Changing a module or programme", ask: "Talk to the programme leader(s), then get agreement from Danny Arends and the Heads of Subject. November is a key window each year. Use the Approvals and Revisions Portal.", people: ["danny-arends", "ali-ryan", "michael-rogerson", "eleanor-graham"], links: ["arforms"], kw: "change request modification module programme scrutiny", src: "WHO", d: ["Changes need to be approved in advance so they fit the right scrutiny window. The School expects to submit several change requests each cycle."] },
   { id: "programme-leaders", g: "Teaching", title: "Finding a programme leader", ask: "Use the Programmes tab in this app, or the “Programme Leaders (26-27)” spreadsheet.", people: [], links: ["leadersXlsx"], kw: "programme leader course", src: "WHO", open: "view:who:programmes", d: [] },
-  { id: "timetable", g: "Teaching", title: "Changing the timetable", ask: "Log a timetable change request (TCR) on the GNS timetables Teams site. For same-day changes (or up to 11:00 the next day), for example because of staff illness, use the High-Priority form on Self Service.", people: [], links: ["teams", "priority"], kw: "tcr timetable room clash postponement cancellation sick illness", src: "WHO", d: ["The timetabling team will assume your reason is fine, and will only question requests that aren’t for an appropriate reason: staff illness, emergencies, room changes or clashes."] },
+  { id: "timetable", g: "Teaching", title: "Changing the timetable", ask: "Use the “Timetable Change Request” form in the TCR channel on the GNS timetables Teams site. Email, informal Teams messages and channel posts can’t be accepted. For same-day changes (or up to 11:00 the next day), for example because of staff illness, use the High-Priority form on Self Service.", people: ["laura-sim", "stacy-harris"], links: ["teams", "priority"], kw: "tcr timetable room clash postponement cancellation sick illness semester 2 draft", src: "TTBL", open: "guide:sem2-timetables", d: ["The timetabling team will assume your reason is fine, and will only question requests that aren’t for an appropriate reason: staff illness, emergencies, room changes or clashes.", "Semester 2 draft timetables: check yours and send changes by Friday 27 November 2026 (close of play). Later requests will be tried but can’t be guaranteed before the final timetables go to students on Wednesday 16 December 2026.", "Staffing more than one activity on a module? Send one request per module, put “see file” in the Activity Name box and fill in the spreadsheet from the timetabling post (example on rows 2 to 4). Or give all the details in the Additional Info box."] },
   { id: "fhea", g: "Teaching", title: "FHEA applications", ask: "The NUPRS leads: Dr Seb Breitenbach (Geography) or Dr Helen Hooper (Applied Sciences).", people: ["sebastian-breitenbach", "helen-hooper"], links: [], kw: "fellowship hea nuprs", src: "WHO", d: [] },
   { id: "al-demo", g: "Teaching", title: "Associate lecturers and demonstrators", ask: "An open call goes out about a month before each semester. The PGR leads (Antony Antoniou and John Clayton) coordinate. Requests during a semester go to Danny Arends. Budget is very limited.", people: ["antony-antoniou", "john-clayton", "danny-arends"], links: [], kw: "al demonstrator teaching assistant hire", src: "WHO", d: ["The open call is sent by the Heads of Subject."] },
   { id: "fieldtrips", g: "Teaching", title: "Student field study visits", ask: "Fieldtrip Coordinator Andy Suggitt is the first contact. Every fieldtrip needs a signed risk assessment and a field study visit form. Mike Rogerson approves all teaching fieldwork risk assessments.", people: ["andy-suggitt-fieldtrip", "michael-rogerson"], links: [], kw: "fieldwork field trip risk assessment residential", src: "WHO", d: ["See also “Travel and risk assessment” below."] },
@@ -348,6 +356,7 @@ const TASKS = [
   /* Workloads and line management */
   { id: "probation", g: "People and line management", title: "Probation paperwork", ask: "Done through the NUPF portal.", people: [], links: [], kw: "probation new staff", src: "WHO", d: [] },
   { id: "workload", g: "People and line management", title: "Workload questions or changes", ask: "Your Head of Subject (Mike Rogerson, Ali Ryan or Eleanor Graham). For cover after unexpected absence or illness, line managers tell the Heads of Subject so cover can be arranged.", people: ["michael-rogerson", "ali-ryan", "eleanor-graham"], links: [], kw: "workloading hours cover", src: "WHO", d: [] },
+  { id: "workload-report", g: "People and line management", title: "Academic workload planner report (Power BI)", ask: "Open it from the button at the top of the Academic Workload Planning channel in Teams. You need access to the planner detail to see it. If you think you should have access, follow the usual process.", people: [], links: [], kw: "workload planning report power bi dashboard staff summaries", src: "WLOAD", d: ["It is a new Power BI reporting tool for Academic Workload Planning data. Individual data follows the same security rules as the planners themselves.", "The report was introduced on 13 November 2026."] },
   { id: "induction", g: "People and line management", title: "New starters and induction", ask: "Line managers are responsible for all aspects of induction. Add your new starter to the right email lists and email their immediate team and subject area to introduce them.", people: [], links: ["induction"], kw: "new starter welcome onboarding", src: "WHO", d: [] },
   { id: "pda", g: "People and line management", title: "Performance and Development Appraisal (PDA)", ask: "Line managers hold an annual PDA conversation. Resources are on the PDA site.", people: [], links: ["pda"], kw: "appraisal review", src: "WHO", d: [] },
   { id: "eap", g: "People and line management", title: "Employee Assistance Programme (EAP)", ask: "Available to all colleagues, 24 hours a day. You don’t need a referral from your line manager.", people: [], links: ["eap"], kw: "wellbeing support counselling help mental health", src: "WHO", d: [] },
@@ -384,6 +393,7 @@ const FAQS = [
   { q: "Can I claim a per diem on a student fieldtrip?", a: "No. Claim actual, reasonable costs with receipts on the Expenses tab on NUPF. Per diems are only for international staff travel that isn’t a student fieldtrip.", src: "WHO", go: [{ label: "Fieldtrip expenses", open: "task:fieldtrip-expenses" }, { label: "Per diem", open: "task:per-diem" }] },
   { q: "Who do I contact about marks entry?", a: "The SITS Helpdesk (rg.srs@northumbria.ac.uk) for student record queries, or the CFM Team (rg.cfm@northumbria.ac.uk) if a module availability record is missing.", src: "MARKS", go: [{ label: "Entering marks", open: "guide:marks-entry" }] },
   { q: "Is there support for my own wellbeing?", a: "Yes. The Employee Assistance Programme is open to all colleagues 24 hours a day and doesn’t need a referral from your line manager.", src: "WHO", go: [{ label: "Employee Assistance Programme", open: "task:eap" }] },
+  { q: "How do I ask for a change to the Semester 2 timetable?", a: "Check the draft in MyTimetable or TermTime, then use the “Timetable Change Request” form in the TCR channel on Teams by Friday 27 November 2026 (close of play). Email and informal messages can’t be accepted. The final timetables are published to students on Wednesday 16 December 2026.", src: "TTBL", go: [{ label: "Semester 2 timetables guide", open: "guide:sem2-timetables" }, { label: "Changing the timetable", open: "task:timetable" }] },
   { q: "When can I change a module or programme?", a: "Changes need to be agreed in advance with the programme leader(s), the Associate Head (Education) and the Heads of Subject. November is a key window each year.", src: "WHO", go: [{ label: "Changing a module or programme", open: "task:module-changes" }] }
 ];
 
@@ -568,6 +578,29 @@ const GUIDES = [
 <p><b>Biosciences</b> (shown under the Associate Head, International): BSc Applied Biomedical Sciences, Biochemistry, Biological Sciences, Biomedical Sciences, Food Science and Nutrition (plus Human Nutrition), Biotechnology; Foundation Years in Applied Sciences and in Medical Sciences; MSc Biotechnology, Microbiology, Nutritional Sciences, Bioinformatics; MRes Medical Biotechnology and Biosciences.</p>
 <p><b>Transnational education (TNE)</b> (under International): BMS Sri Lanka, VTC SHAPE Hong Kong, and the Medicine Pathway Programme at SGU, Grenada.</p>
 <p class="small">Teaching processes in the “Who to contact” document are routed through the Associate Head (Education) and all three Heads of Subject.</p>
+` },
+  { id: "sem2-timetables", title: "Semester 2 timetables: what to do and when", blurb: "Check the draft, send changes by 27 November", srcs: ["TTBL"], kw: "timetable semester 2 draft tcr change request termtime mytimetable january induction clashes unstaffed", html: `
+<p class="lead">From the timetabling team’s Teams post. The Semester 2 draft timetables are ready for staff to check.</p>
+<h3>Key dates</h3>
+<ul>
+<li>Draft timetables released: <b>Monday 16 November 2026</b></li>
+<li>Review and change request deadline: <b>Friday 27 November 2026</b> (close of play)</li>
+<li>Final student timetables published: <b>Wednesday 16 December 2026</b></li>
+</ul>
+<h3>Check your timetable</h3>
+<p>Use MyTimetable, or look directly in TermTime. Both are linked from the Teaching Timetables intranet page under Useful Links. That page also links to the Timetabling Guides, with written and video help on viewing programme and module timetables in TermTime, and a guide to viewing different timetables in MyTimetable.</p>
+<h3>Asking for a change</h3>
+<ul>
+<li>Use the <b>“Timetable Change Request” form</b> in the dedicated TCR channel on Teams.</li>
+<li>Requests can’t be accepted by email, informal Teams messages, channel posts or similar.</li>
+<li>Staffing more than one activity on a module? Complete the spreadsheet attached to the post (example on rows 2 to 4). Send <b>one request per module</b> and enter “see file” in the Activity Name box. Or give all the information in the Additional Info box.</li>
+<li>Requests after 27 November will be tried, but they can’t be guaranteed to be in place before the final timetables are published.</li>
+</ul>
+<h3>What the timetabling team is doing</h3>
+<p>They are running a series of reports and checks. Soon they will share documents on the School’s Teams sites listing sessions that are currently unstaffed, sessions that could not be scheduled, and clashes. Please look out for these and help finalise the timetables.</p>
+<h3>January induction</h3>
+<p>Few induction activities are marked ready for scheduling. As a minimum, a Programme Induction will be added to each January induction module. The team will then share a document of existing activities for Programme Leads to confirm what is needed, and to add any new activities.</p>
+<p>Questions or concerns? <a href="#" data-open="person:laura-sim">Laura Sim</a> and the timetabling team are happy to help. Please pass this message on to colleagues who need it.</p>
 ` }
 ];
 
@@ -585,7 +618,9 @@ const TERMS = [
   { t: "NUPF", full: "", d: "The portal used for probation paperwork, logging staff absence and claiming expenses. The documents don’t spell the name out.", src: "WHO" },
   { t: "PDA", full: "Performance and Development Appraisal", d: "Your annual appraisal conversation with your line manager.", src: "WHO" },
   { t: "EAP", full: "Employee Assistance Programme", d: "Confidential support for all colleagues, 24 hours a day.", src: "WHO" },
-  { t: "TCR", full: "Timetable change request", d: "Log it on the GNS timetables Teams site.", src: "WHO" },
+  { t: "TCR", full: "Timetable change request", d: "Use the “Timetable Change Request” form in the TCR channel on Teams. Email and informal messages can’t be accepted.", src: "TTBL" },
+  { t: "TermTime", full: "", d: "A system where you can view programme and module timetables. You can also use MyTimetable. Both are linked from the Teaching Timetables intranet page.", src: "TTBL" },
+  { t: "MyTimetable", full: "", d: "A way to view timetables, including different timetables. See the Timetabling Guides on the Teaching Timetables intranet page.", src: "TTBL" },
   { t: "AL", full: "Associate Lecturer", d: "Teaching support. “AL & demonstrators” have an open call before each semester.", src: "WHO" },
   { t: "EDI", full: "Equality, diversity and inclusion", d: "", src: "ROLES" },
   { t: "PGR", full: "Postgraduate research", d: "", src: "ROLES" },
@@ -1450,7 +1485,7 @@ const PHOTOS = {"katy-jenkins":"/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHCAkIBgoJCAkM
     h += '<div class="small">' + esc(dateWords(D)) + (D.wc && tw && D.t.indexOf('Teaching Week') < 0 ? ' · Teaching Week ' + tw : '') + '</div>';
     if (D.d) h += '<div class="small">' + esc(D.d) + '</div>';
     if (D.note) h += '<div class="warn">' + esc(D.note) + '</div>';
-    h += srcLine('DATES') + '</div>';
+    h += (D.open ? '<button class="btn small" data-open="' + D.open + '">What to do</button> ' : '') + srcLine(D.src || 'DATES') + '</div>';
     if (opts.star !== false) h += '<button class="star" data-star="' + D.id + '" aria-pressed="' + (!!STARS[D.id]) + '" aria-label="' + (STARS[D.id] ? 'Remove from my dates: ' : 'Add to my dates: ') + esc(D.t) + '">' + (STARS[D.id] ? '&#9733;' : '&#9734;') + '</button>';
     return h + '</div>';
   }
@@ -1632,7 +1667,8 @@ const PHOTOS = {"katy-jenkins":"/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHCAkIBgoJCAkM
     }).join('') + '</div></section>';
     h += '<section class="sect"><h3>Modules</h3><button class="btn" data-view="modules">Who is the tutor or moderator for a module?</button></section>';
     h += '<section class="sect"><h3>Try asking</h3><div class="chips">' + ['off sick', 'fieldtrip', 'resit marks', 'misconduct', 'ethics', 'workload', 'PAB', 'expenses'].map(function (q) { return '<button class="chip" data-q="' + esc(q) + '">' + esc(q) + '</button>'; }).join('') + '</div></section>';
-    var worth = [];
+    var worth = [], ttd = DATES.filter(function (D) { return D.id === 'ttreview'; })[0];
+    if (ttd && ttd.end >= TODAY) worth.push('<div class="card hl"><b>Semester 2 draft timetables: check yours</b><p>Send any change requests by ' + esc(fDay(ttd.start)) + ' (close of play), using the Timetable Change Request form in the TCR channel on Teams.</p><button class="btn small" data-open="guide:sem2-timetables">What to do</button> ' + srcLine('TTBL') + '</div>');
     worth.push('<div class="card hl"><b>Degree algorithm under review</b><p>For students entering in September 2027, the University is reviewing the degree algorithm.</p>' + srcLine('REGS') + '</div>');
     worth.push('<div class="card hl"><b>2026/27 regulations are in force</b><p>The only key change in the log is to the language of instruction (section 1.17).</p><button class="btn small" data-open="guide:regs-new">See what changed</button> ' + srcLine('REGS') + '</div>');
     if (TODAY.getMonth() === 9 || TODAY.getMonth() === 10) worth.push('<div class="card hl"><b>November is the key window for module and programme changes</b><p>Agree changes with the programme leader(s), then the Associate Head (Education) and Heads of Subject.</p><button class="btn small" data-open="task:module-changes">How to do it</button> ' + srcLine('WHO') + '</div>');
@@ -1898,7 +1934,7 @@ const PHOTOS = {"katy-jenkins":"/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHCAkIBgoJCAkM
     var L = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//GNS Info//Key dates//EN', 'CALSCALE:GREGORIAN', 'X-WR-CALNAME:GNS key dates ' + META.academicYear];
     list.forEach(function (D) {
       var title = D.t + (D.time ? ' (by ' + D.time + ')' : '');
-      L.push('BEGIN:VEVENT', 'UID:' + D.id + '-' + ymd(D.start) + '@gns-info', 'DTSTAMP:' + stamp, 'DTSTART;VALUE=DATE:' + ymd(D.start), 'DTEND;VALUE=DATE:' + ymd(addDays(D.end, 1)), 'SUMMARY:' + icsEsc(title), 'DESCRIPTION:' + icsEsc((D.d ? D.d + ' ' : '') + 'Source: ' + SOURCES.DATES.short + '. Always check with the appropriate contact for anything important.'), 'TRANSP:TRANSPARENT', 'BEGIN:VALARM', 'ACTION:DISPLAY', 'DESCRIPTION:' + icsEsc(title), 'TRIGGER:-PT15H', 'END:VALARM', 'END:VEVENT');
+      L.push('BEGIN:VEVENT', 'UID:' + D.id + '-' + ymd(D.start) + '@gns-info', 'DTSTAMP:' + stamp, 'DTSTART;VALUE=DATE:' + ymd(D.start), 'DTEND;VALUE=DATE:' + ymd(addDays(D.end, 1)), 'SUMMARY:' + icsEsc(title), 'DESCRIPTION:' + icsEsc((D.d ? D.d + ' ' : '') + 'Source: ' + SOURCES[D.src || 'DATES'].short + '. Always check with the appropriate contact for anything important.'), 'TRANSP:TRANSPARENT', 'BEGIN:VALARM', 'ACTION:DISPLAY', 'DESCRIPTION:' + icsEsc(title), 'TRIGGER:-PT15H', 'END:VALARM', 'END:VEVENT');
     });
     L.push('END:VCALENDAR');
     return L.map(fold).join('\r\n') + '\r\n';
@@ -1906,14 +1942,14 @@ const PHOTOS = {"katy-jenkins":"/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHCAkIBgoJCAkM
   function downloadICS() {
     var list = selectedDates(); if (!list.length) { $('#live').textContent = 'There are no dates to add.'; return; }
     var blob = new Blob([makeICS(list)], { type: 'text/calendar;charset=utf-8' });
-    var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'gns-key-dates-2026-27.ics';
-    document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1500);
+    var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'gns-key-dates-2026-27.ics'; a.hidden = true; a.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(a); a.click(); a.remove(); setTimeout(function () { URL.revokeObjectURL(a.href); }, 4000);
     $('#live').textContent = 'Calendar file downloaded with ' + list.length + ' dates.';
   }
   function printDates() {
     var list = selectedDates();
     var h = '<h1>GNS key dates ' + esc(META.academicYear) + '</h1><p>Printed ' + esc(fFull(TODAY)) + ' · GNS Info, last updated ' + esc(META.lastUpdated) + '</p><table><thead><tr><th>When</th><th>What</th><th>Notes</th></tr></thead><tbody>' +
-      list.map(function (D) { return '<tr><td>' + esc(dateWords(D)) + '</td><td>' + esc(D.t) + '</td><td>' + esc((D.d || '') + (D.note ? ' ' + D.note : '')) + '</td></tr>'; }).join('') + '</tbody></table><p>Source: ' + esc(SOURCES.DATES.name) + ', ' + esc(SOURCES.DATES.date) + '. ' + esc(META.disclaimer) + '</p>';
+      list.map(function (D) { return '<tr><td>' + esc(dateWords(D)) + '</td><td>' + esc(D.t) + '</td><td>' + esc((D.d || '') + (D.note ? ' ' + D.note : '')) + '</td></tr>'; }).join('') + '</tbody></table><p>Sources: ' + esc(Object.keys(list.reduce(function (o, D) { o[D.src || 'DATES'] = 1; return o; }, {})).map(function (k) { return SOURCES[k].name + ', ' + SOURCES[k].date; }).join('; ')) + '. ' + esc(META.disclaimer) + '</p>';
     $('#printarea').innerHTML = h; document.body.classList.add('print-dates');
     window.print();
     setTimeout(function () { document.body.classList.remove('print-dates'); }, 500);
